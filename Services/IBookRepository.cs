@@ -10,5 +10,8 @@ namespace LibraryExample.api.Services
     {
         IEnumerable<BookDto> GetBookForAuthor(int authorId);
         BookDto GetBookForAuthor(int authorId, int bookId);
+        void AddBook(BookDto book);
+        void DeleteBook(BookDto book);
+        void UpdateBook(int authorId,int bookId,BookForUpdateDto book);
     }
 }

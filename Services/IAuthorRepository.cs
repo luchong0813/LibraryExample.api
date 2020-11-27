@@ -11,5 +11,8 @@ namespace LibraryExample.api.Services
         IEnumerable<AuthorDto> GetAuthors();
         AuthorDto GetAuthorById(int authorId);
         bool IsAuthorExists(int authorId);
+
+        void AddAuthor(AuthorDto author);
+        void DeleteAuthor(AuthorDto author);
     }
 }
