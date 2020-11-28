@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibraryExample.api.Controllers
 {
+    
     [Route("api/authors")]
     [ApiController]
     public class AuthorController : ControllerBase
@@ -35,6 +36,7 @@ namespace LibraryExample.api.Controllers
             }
             return author;
         }
+
 
         [HttpPost]
         public IActionResult AddAuthor(AuthorForCreationDto creationDto)
