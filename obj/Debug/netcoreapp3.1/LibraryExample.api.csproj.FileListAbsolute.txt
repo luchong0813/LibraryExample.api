@@ -6,7 +6,6 @@ E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\LibraryExample.api.runtimec
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\LibraryExample.api.runtimeconfig.dev.json
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\LibraryExample.api.dll
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\LibraryExample.api.pdb
-E:\Source\LibraryExample.api\obj\Debug\netcoreapp3.1\LibraryExample.api.csprojAssemblyReference.cache
 E:\Source\LibraryExample.api\obj\Debug\netcoreapp3.1\LibraryExample.api.AssemblyInfoInputs.cache
 E:\Source\LibraryExample.api\obj\Debug\netcoreapp3.1\LibraryExample.api.AssemblyInfo.cs
 E:\Source\LibraryExample.api\obj\Debug\netcoreapp3.1\LibraryExample.api.csproj.CoreCompileInputs.cache
@@ -65,3 +64,6 @@ E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+E:\Source\LibraryExample.api\obj\Debug\netcoreapp3.1\LibraryExample.api.csprojAssemblyReference.cache
+E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\Source\LibraryExample.api\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -15,6 +15,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using LibraryExample.api.Filters;
 
 namespace LibraryExample.api
 {
@@ -39,8 +41,11 @@ namespace LibraryExample.api
                 //config.OutputFormatters.Add(new XmlSerializerOutputFormatter());
             }).AddXmlSerializerFormatters();
 
-            services.AddScoped<IAuthorRepository, AuthorRepository>();
-            services.AddScoped<IBookRepository, BookRepository>();
+            //services.AddScoped<IAuthorRepository, AuthorRepository>();
+            //services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<CheckAutoExistFilterAttribute>();
 
             services.AddDbContext<LibrayDbContext>(option =>
             {
@@ -77,6 +82,7 @@ namespace LibraryExample.api
             {
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "LibraryExample.API V1");
             });
+
 
             app.UseHttpsRedirection();
 
