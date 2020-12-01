@@ -25,9 +25,9 @@ namespace LibraryExample.api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<AuthorDto>>> GetAuthorsAsync()
+        public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthorsAsync()
         {
-            var authors = (await _repositoryWrapper.Author.GetAllAsync()).OrderBy(a => a.Name);
+            var authors = (await _repositoryWrapper.Author.GetAllAsync()).OrderBy(author => author.Name);
             var authorDtoList = _mapper.Map<IEnumerable<AuthorDto>>(authors);
             return authorDtoList.ToList();
         }
@@ -36,11 +36,12 @@ namespace LibraryExample.api.Controllers
         public async Task<ActionResult<AuthorDto>> GetAuthorAsync(int authorid)
         {
             var author = await _repositoryWrapper.Author.GetByIdAsync(authorid);
-            var authorDto = _mapper.Map<AuthorDto>(author);
-            if (authorDto == null)
+
+            if (author == null)
             {
                 return NotFound();
             }
+            var authorDto = _mapper.Map<AuthorDto>(author);
             return authorDto;
         }
 
@@ -56,7 +57,7 @@ namespace LibraryExample.api.Controllers
                 throw new Exception("创建资源失败");
             }
             var authorCreated = _mapper.Map<AuthorDto>(author);
-            return CreatedAtAction(nameof(GetAuthorAsync), new { authorId = authorCreated.Id }, authorCreated);
+            return CreatedAtRoute(nameof(GetAuthorAsync), new { authorId = authorCreated.Id }, authorCreated);
         }
 
         [HttpDelete("{authorId}")]

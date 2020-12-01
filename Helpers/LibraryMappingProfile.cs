@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibraryExample.api.Extensions;
 
 namespace LibraryExample.api.Helpers
 {
@@ -12,7 +13,9 @@ namespace LibraryExample.api.Helpers
     {
         public LibraryMappingProfile()
         {
-            CreateMap<Author, AuthorDto>().ForMember(dest => dest.Age, config => config.MapFrom(src => src.BirthData));
+            CreateMap<Author, AuthorDto>()
+                .ForMember(dest => dest.Age, config => config
+            .MapFrom(src => src.BirthData.GetCurrentAge()));
             CreateMap<Book, BookDto>();
             CreateMap<AuthorForCreationDto, Author>();
             CreateMap<BookForCreationDto, Book>();

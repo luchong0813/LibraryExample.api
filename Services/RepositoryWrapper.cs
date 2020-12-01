@@ -20,6 +20,6 @@ namespace LibraryExample.api.Services
 
         public IAuthorRepository Author => _authorRepository ?? new AuthorRepository(_librayDbContext);
 
-        public LibrayDbContext _librayDbContext { get; private set; }
+        public LibrayDbContext _librayDbContext { get;  }
     }
 }

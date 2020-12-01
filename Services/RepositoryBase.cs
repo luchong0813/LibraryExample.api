@@ -43,7 +43,7 @@ namespace LibraryExample.api.Services
         }
 
         public async Task<bool> IsExistAsync(TId id)
-        {
+        { 
             return await _dbContext.Set<T>().FindAsync(id) != null;
         }
 

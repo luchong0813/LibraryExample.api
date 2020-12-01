@@ -13,6 +13,7 @@ using LibraryExample.api.Entities;
 namespace LibraryExample.api.Controllers
 {
     [Route("api/authors/{authorId}/books")]
+    [ApiController]
     [ServiceFilter(typeof(CheckAutoExistFilterAttribute))]
     public class BookController : ControllerBase
     {
@@ -26,9 +27,8 @@ namespace LibraryExample.api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<BookDto>>> GetBooksAsync(int authorId)
+        public async Task<ActionResult<IEnumerable<BookDto>>> GetBooksAsync(int authorId)
         {
-            //return await _repositoryWrapper.Book.GetByConditionAsync(b => b.AuthorId == authorId);
             var books = await _repositoryWrapper.Book.GetBooksAsync(authorId);
             var booksDtoList = _mapper.Map<IEnumerable<BookDto>>(books);
             return booksDtoList.ToList();
