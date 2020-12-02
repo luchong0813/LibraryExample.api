@@ -20,6 +20,7 @@ namespace LibraryExample.api.Helpers
             CreateMap<AuthorForCreationDto, Author>();
             CreateMap<BookForCreationDto, Book>();
             CreateMap<BookForUpdateDto, Book>();
+
         }
     }
 }
