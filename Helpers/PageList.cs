@@ -16,6 +16,7 @@ namespace LibraryExample.api.Helpers
             TotalPage = (int)Math.Ceiling((double)totalCount / pageSize);
             AddRange(items);
         }
+        public int _currentPage { get; private set; }
 
         public int _totalCount { get; }
         public int _pageNumber { get; }

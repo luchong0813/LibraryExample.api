@@ -26,7 +26,7 @@ namespace LibraryExample.api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet(Name =nameof(GetAuthorsAsync))]
+        [HttpGet(Name = nameof(GetAuthorsAsync))]
         public async Task<ActionResult<IEnumerable<AuthorDto>>> GetAuthorsAsync([FromQuery] AuthorResourceParmeters parmeters)
         {
             var pageList = await _repositoryWrapper.Author.GetAllAsync(parmeters);
@@ -36,12 +36,23 @@ namespace LibraryExample.api.Controllers
                 pageSize = pageList._pageSize,
                 currentPage = pageList._pageNumber,
                 totalPages = pageList.TotalPage,
-                previousePageLink = pageList.HasPrevious ? Url.Link(nameof(GetAuthorsAsync), new
+                previousePageLink = pageList.HasPrevious ? Url.Link(nameof(GetAuthorAsync),
+                new
                 {
-                    pageNumber = pageList._pageNumber + 1,
-                    pageSize = pageList._pageSize
+                    pageNumber = pageList._currentPage - 1,
+                    pageSize = pageList._pageSize,
+                    birthPlace = parmeters.BirthPlace,
+                    serachQuery = parmeters.SerachQuery
+                }) : null,
+                nextPageLink = pageList.HasNext ? Url.Link(nameof(GetAuthorAsync), new
+                {
+                    pageNumber = pageList._currentPage + 1,
+                    pageSize = pageList._pageSize,
+                    birthPlace = parmeters.BirthPlace,
+                    serachQuery = parmeters.SerachQuery
                 }) : null
             };
+
 
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(paginationMetadata));
 

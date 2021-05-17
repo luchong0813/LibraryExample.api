@@ -9,8 +9,14 @@ namespace LibraryExample.api.Helpers
     {
         public const int MaxPageSize = 50;
         public int PageNumber { get; set; } = 1;
+        /// <summary>
+        /// 过滤条件
+        /// </summary>
+        public string BirthPlace { get; set; }
+        public string SerachQuery { get; set; }
+        public string StoryBy { get; set; } = "Name";
 
-        private int pageSize;
+        private int pageSize = 10;
         public int PageSize
         {
             get { return pageSize; }
